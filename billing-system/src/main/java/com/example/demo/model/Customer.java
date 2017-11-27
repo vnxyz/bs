@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -11,13 +14,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "CUSTOMERS")
 public class Customer {
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	@NotNull
 	private String firstName;
 	private String lastName;
 	private String emailId;
 	@NotNull
-	private int phoneNumber;
+	@Column(unique = true)
+	private String phoneNumber;
 
 	public int getId() {
 		return id;
@@ -51,12 +56,18 @@ public class Customer {
 		this.emailId = emailId;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
+				+ ", phoneNumber=" + phoneNumber + "]";
 	}
 
 }
