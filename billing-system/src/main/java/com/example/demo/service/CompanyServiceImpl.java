@@ -25,7 +25,7 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	public Company getCompany(String id) throws CompanyException {
-		Company company = companyRepository.getCompanyDetails(id);
+		Company company = companyRepository.getOne(id);
 		if(company == null)
 			throw new CompanyException("No company exists with given id : " + id);
 		return company;

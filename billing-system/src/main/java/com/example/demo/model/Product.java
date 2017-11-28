@@ -3,6 +3,8 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,7 +17,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Product {
 
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private String id;
 	@NotNull
 	private String name;
 	@NotNull
@@ -25,11 +28,11 @@ public class Product {
 	@NotNull
 	private Company company;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -55,6 +58,11 @@ public class Product {
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", type=" + type + ", company=" + company + "]";
 	}
 
 }

@@ -7,8 +7,5 @@ import com.example.demo.model.Company;
 import com.example.demo.model.Supplier;
 
 public interface SupplierRepository extends JpaRepository<Supplier, String> {
-	
-	@Query("from Supplier c where c.id=?1")
-	public Supplier getSupplierDetails(String id);
 
 }

@@ -28,7 +28,7 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public Supplier getSupplier(String id) throws SupplierException {
-		Supplier supplier = supplierRepository.getSupplierDetails(id);
+		Supplier supplier = supplierRepository.getOne(id);
 		if (supplier == null)
 			throw new SupplierException("No company exists with given id : " + id);
 		return supplier;
