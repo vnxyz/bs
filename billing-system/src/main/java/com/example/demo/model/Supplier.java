@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -12,16 +14,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Supplier {
 
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private String id;
 	@NotNull
 	private String name;
 	private String address;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

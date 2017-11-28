@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,17 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.setEmailId(emailId);
 		customerRepository.save(customer);
 		return true;
+	}
+
+	@Override
+	public Customer getCustomerByPhoneNumber(String phoneNumber) {
+		return customerRepository.getCustomerByPhoneNumber(phoneNumber);
+		
+	}
+
+	@Override
+	public List<Customer> getCustomerByEmailId(String emailId) {
+		return customerRepository.getCustomerByEmailId(emailId);
 	}
 
 }
