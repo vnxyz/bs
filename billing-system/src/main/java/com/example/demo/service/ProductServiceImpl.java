@@ -46,8 +46,10 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> getProductsByName(String name) throws ProductException {
-		// TODO Auto-generated method stub
-		return null;
+		List<Product> products = productRepository.getProductsByName(name);
+		if(products.isEmpty())
+			throw new ProductException("Product doesn't exist for given name " + name);
+		return products;
 	}
 
 	@Override
