@@ -84,4 +84,10 @@ public class Item {
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", product=" + product + ", quantity=" + quantity
+				+ ", quantityParameter=" + quantityParameter + ", price=" + price + ", supplier=" + supplier + "]";
+	}
 }

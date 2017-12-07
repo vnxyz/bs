@@ -1,4 +1,4 @@
-package com.example.demo.web;
+package com.example.demo.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.service.TxrService;
+import com.example.demo.web.request.TxrRequest;
+import com.example.demo.web.response.TxrResponse;
 
 @CrossOrigin(origins="*")
 @RestController

@@ -1,4 +1,4 @@
-package com.example.demo.web;
+package com.example.demo.web.controller;
 
 import java.util.List;
 

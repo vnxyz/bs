@@ -6,8 +6,9 @@ import com.example.demo.model.Customer;
 import com.example.exceptions.CustomerException;
 
 public interface CustomerService {
-	public boolean createCustomer(String firstName, String lastName, String phoneNumber, String emailId) throws CustomerException;
+	public String createCustomer(String firstName, String lastName, String phoneNumber, String emailId) throws CustomerException;
 	
 	public Customer getCustomerByPhoneNumber(String phoneNumber);
 	public List<Customer> getCustomerByEmailId(String emailId);
+	public Customer getCustomerById(String id);
 }

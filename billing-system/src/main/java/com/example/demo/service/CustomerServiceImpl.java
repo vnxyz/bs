@@ -16,7 +16,7 @@ public class CustomerServiceImpl implements CustomerService {
 	CustomerRepostitory customerRepository;
 
 	@Override
-	public boolean createCustomer(String firstName, String lastName, String phoneNumber, String emailId)
+	public String createCustomer(String firstName, String lastName, String phoneNumber, String emailId)
 			throws CustomerException {
 		Customer customer = new Customer();
 		if (firstName.isEmpty())
@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.setPhoneNumber(phoneNumber);
 		customer.setEmailId(emailId);
 		customerRepository.save(customer);
-		return true;
+		return customerRepository.getCustomerByPhoneNumber(phoneNumber).getId();
 	}
 
 	@Override
@@ -43,6 +43,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public List<Customer> getCustomerByEmailId(String emailId) {
 		return customerRepository.getCustomerByEmailId(emailId);
+	}
+
+	@Override
+	public Customer getCustomerById(String id) {
+		return customerRepository.findOne(id);
 	}
 
 }
